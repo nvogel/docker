@@ -1,5 +1,7 @@
 FROM python:2.7
 
+RUN apt-get update && apt-get install -y dnsutils
+
 COPY files/requirements.txt /
 RUN pip install --no-cache-dir -r /requirements.txt
 
