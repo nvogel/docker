@@ -1,3 +1,4 @@
+import socket
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 
@@ -9,6 +10,10 @@ def hello_world():
 @app.route('/headers')
 def headers():
   return "{}".format(request.headers)
+
+@app.route('/server')
+def server():
+  return "Server host {}".format(socket.gethostname())
 
 @app.route('/ip')
 def ip():
